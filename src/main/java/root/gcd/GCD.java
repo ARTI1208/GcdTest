@@ -19,6 +19,16 @@ public class GCD
     public int gcd(int x, int y)
     {
         int t;
+        if(x==Integer.MIN_VALUE) {
+            if(y==0)
+                return Math.abs(x);
+            return gcd(x % y,y);
+        }
+        if(y==Integer.MIN_VALUE) {
+            if(x==0)
+                return Math.abs(y);
+            return gcd(x,y%x);
+        }
 
         if(x < 0) x = -x;
         if(y < 0) y = -y;

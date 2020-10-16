@@ -69,8 +69,10 @@ public class GCDTest {
     @Test
     public void borderArgs() {
         GCD gcd=new GCD();
-        int answer=gcd.gcd(Integer.MIN_VALUE,Integer.MAX_VALUE);
-        Assert.assertEquals(answer,1);
+        int answer=gcd.gcd(Integer.MAX_VALUE,Integer.MAX_VALUE);
+        int answer2=gcd.gcd(Integer.MAX_VALUE,Integer.MIN_VALUE);
+        int answer3=gcd.gcd(Integer.MIN_VALUE,Integer.MIN_VALUE);
+        Assert.assertTrue(answer==Integer.MAX_VALUE && answer2==Integer.MIN_VALUE && answer3==1);
     }
 
 
