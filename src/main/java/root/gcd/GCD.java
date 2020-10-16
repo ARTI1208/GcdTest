@@ -19,7 +19,7 @@ public class GCD {
 
         if (x == Integer.MIN_VALUE) {
             if (y == Integer.MIN_VALUE) {
-                throw new IllegalArgumentException();
+                throw new IllegalArgumentException(); // иначе результат должен быть отрицательным, что противоречит заданию
             } else if (y != 0) {
                 x = x % y;
             }
