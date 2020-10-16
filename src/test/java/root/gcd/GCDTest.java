@@ -1,7 +1,8 @@
 package root.gcd;
 
-import org.junit.Assert;
-import org.junit.Test;
+
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
 
 
 public class GCDTest {
@@ -10,7 +11,7 @@ public class GCDTest {
     public void positiveArgs() {
         GCD gcd = new GCD();
         int res = gcd.gcd(12, 7);
-        Assert.assertTrue(res > 0);
+        Assertions.assertTrue(res > 0);
 
     }
 
@@ -19,13 +20,13 @@ public class GCDTest {
         GCD gcd = new GCD();
 
         int a = gcd.gcd(-12, 9);
-        Assert.assertEquals(3, a);
+        Assertions.assertEquals(3, a);
 
         int b = gcd.gcd(12, -9);
-        Assert.assertEquals(3, b);
+        Assertions.assertEquals(3, b);
 
         int c = gcd.gcd(-12, -9);
-        Assert.assertEquals(3, c);
+        Assertions.assertEquals(3, c);
     }
 
     @Test
@@ -33,27 +34,27 @@ public class GCDTest {
         GCD gcd = new GCD();
 
         int answer1 = gcd.gcd(0, 0);
-        Assert.assertEquals(0, answer1);
+        Assertions.assertEquals(0, answer1);
 
         int answer2 = gcd.gcd(10, 0);
-        Assert.assertEquals(10, answer2);
+        Assertions.assertEquals(10, answer2);
 
         int answer3 = gcd.gcd(0, 7);
-        Assert.assertEquals(7, answer3);
+        Assertions.assertEquals(7, answer3);
     }
 
     @Test
     public void coprimeIntegers() {
         GCD gcd = new GCD();
         int answer = gcd.gcd(15, 8);
-        Assert.assertEquals(1, answer);
+        Assertions.assertEquals(1, answer);
     }
 
     @Test
     public void equalArgs() {
         GCD gcd = new GCD();
         int answer = gcd.gcd(7, 7);
-        Assert.assertEquals(7, answer);
+        Assertions.assertEquals(7, answer);
     }
 
     @Test
@@ -61,48 +62,45 @@ public class GCDTest {
         GCD gcd = new GCD();
 
         int a = gcd.gcd(4, 12);
-        Assert.assertEquals(4, a);
+        Assertions.assertEquals(4, a);
 
         int b = gcd.gcd(12, 4);
-        Assert.assertEquals(4, b);
+        Assertions.assertEquals(4, b);
 
         int c = gcd.gcd(-4, 12);
-        Assert.assertEquals(4, c);
+        Assertions.assertEquals(4, c);
 
         int d = gcd.gcd(12, -4);
-        Assert.assertEquals(4, d);
+        Assertions.assertEquals(4, d);
 
         int e = gcd.gcd(4, -12);
-        Assert.assertEquals(4, e);
+        Assertions.assertEquals(4, e);
 
         int f = gcd.gcd(-12, 4);
-        Assert.assertEquals(4, f);
+        Assertions.assertEquals(4, f);
 
         int g = gcd.gcd(-4, -12);
-        Assert.assertEquals(4, g);
+        Assertions.assertEquals(4, g);
     }
 
     @Test
     public void notEqualArgsMaxGcd() {
         GCD gcd = new GCD();
         int res = gcd.gcd(45, 60);
-        Assert.assertEquals(15, res);
+        Assertions.assertEquals(15, res);
     }
 
     @Test
     public void borderArgs() {
-        GCD gcd=new GCD();
-        boolean excep=false;
-        int answer=gcd.gcd(Integer.MAX_VALUE,Integer.MAX_VALUE);
-        int answer2=gcd.gcd(Integer.MAX_VALUE,Integer.MIN_VALUE);
-        try {
-            int answer3=gcd.gcd(Integer.MIN_VALUE,Integer.MIN_VALUE);
-        }catch (IllegalArgumentException e)
-        {
-            excep=true;
-        }
+        GCD gcd = new GCD();
 
-        Assert.assertTrue(answer==Integer.MAX_VALUE && answer2==1 && excep);
+        int answer = gcd.gcd(Integer.MAX_VALUE, Integer.MAX_VALUE);
+        Assertions.assertEquals(Integer.MAX_VALUE, answer);
+
+        int answer2 = gcd.gcd(Integer.MAX_VALUE, Integer.MIN_VALUE);
+        Assertions.assertEquals(1, answer2);
+
+        Assertions.assertThrows(IllegalArgumentException.class, () -> gcd.gcd(Integer.MIN_VALUE, Integer.MIN_VALUE));
     }
 
 
