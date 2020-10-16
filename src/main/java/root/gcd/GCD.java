@@ -19,15 +19,13 @@ public class GCD
     public int gcd(int x, int y)
     {
         int t;
-        if(x==Integer.MIN_VALUE) {
-            if(y==0)
-                return Math.abs(x);
-            return gcd(x % y,y);
+        if(x==Integer.MIN_VALUE & y==Integer.MIN_VALUE)
+            throw new IllegalArgumentException();
+        if(x==Integer.MIN_VALUE | y!=0) {
+           x=x%y;
         }
-        if(y==Integer.MIN_VALUE) {
-            if(x==0)
-                return Math.abs(y);
-            return gcd(x,y%x);
+        if(y==Integer.MIN_VALUE | x!=0) {
+            y=y%x;
         }
 
         if(x < 0) x = -x;

@@ -92,10 +92,17 @@ public class GCDTest {
     @Test
     public void borderArgs() {
         GCD gcd=new GCD();
+        boolean excep=false;
         int answer=gcd.gcd(Integer.MAX_VALUE,Integer.MAX_VALUE);
         int answer2=gcd.gcd(Integer.MAX_VALUE,Integer.MIN_VALUE);
-        int answer3=gcd.gcd(Integer.MIN_VALUE,Integer.MIN_VALUE);
-        Assert.assertTrue(answer==Integer.MAX_VALUE && answer2==Integer.MIN_VALUE && answer3==1);
+        try {
+            int answer3=gcd.gcd(Integer.MIN_VALUE,Integer.MIN_VALUE);
+        }catch (IllegalArgumentException e)
+        {
+            excep=true;
+        }
+
+        Assert.assertTrue(answer==Integer.MAX_VALUE && answer2==1 && excep);
     }
 
 
