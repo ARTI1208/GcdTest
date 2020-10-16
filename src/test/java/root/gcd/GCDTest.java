@@ -102,7 +102,9 @@ public class GCDTest {
             excep=true;
         }
 
-        Assert.assertTrue(answer==Integer.MAX_VALUE && answer2==1 && excep);
+        Assert.assertEquals(answer, Integer.MAX_VALUE);
+        Assert.assertEquals(1, answer2);
+        Assert.assertTrue(excep);
     }
 
 
