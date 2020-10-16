@@ -3,21 +3,24 @@ package root.gcd;
 import org.junit.Assert;
 import org.junit.Test;
 
-import static org.junit.Assert.*;
 
 public class GCDTest {
 
     @Test
     public void positiveArgs() {
         GCD gcd = new GCD();
-
         int res = gcd.gcd(12, 7);
         Assert.assertTrue(res > 0);
+
     }
 
     @Test
     public void negativeArgs() {
-
+        GCD gcd = new GCD();
+        int a = gcd.gcd(-12,9);
+        int b = gcd.gcd(12,-9);
+        int c = gcd.gcd(-12,-9);
+        Assert.assertTrue(a==3 && b==3 && c==3);
     }
 
     @Test
@@ -45,7 +48,15 @@ public class GCDTest {
 
     @Test
     public void argDividesArg() {
-
+        GCD gcd = new GCD();
+        int a = gcd.gcd(4,12);
+        int b = gcd.gcd(12,4);
+        int c = gcd.gcd(-4,12);
+        int d = gcd.gcd(12,-4);
+        int e = gcd.gcd(4,-12);
+        int f = gcd.gcd(-12,4);
+        int g = gcd.gcd(-4,-12);
+        Assert.assertTrue(a==4 && b==4 && c==4 && d==4 && e==4 && f==4 && g==4);
     }
 
     @Test
@@ -57,7 +68,9 @@ public class GCDTest {
 
     @Test
     public void borderArgs() {
-
+        GCD gcd=new GCD();
+        int answer=gcd.gcd(Integer.MIN_VALUE,Integer.MAX_VALUE);
+        Assert.assertEquals(answer,1);
     }
 
 
