@@ -17,53 +17,76 @@ public class GCDTest {
     @Test
     public void negativeArgs() {
         GCD gcd = new GCD();
-        int a = gcd.gcd(-12,9);
-        int b = gcd.gcd(12,-9);
-        int c = gcd.gcd(-12,-9);
-        Assert.assertTrue(a==3 && b==3 && c==3);
+
+        int a = gcd.gcd(-12, 9);
+        Assert.assertEquals(3, a);
+
+        int b = gcd.gcd(12, -9);
+        Assert.assertEquals(3, b);
+
+        int c = gcd.gcd(-12, -9);
+        Assert.assertEquals(3, c);
     }
 
     @Test
     public void zeroArgs() {
-        GCD gcd=new GCD();
-        int answer1=gcd.gcd(0,0);
-        int answer2=gcd.gcd(10,0);
-        int answer3=gcd.gcd(0,7);
-        Assert.assertTrue(answer1==0 && answer2==10 && answer3==7);
+        GCD gcd = new GCD();
+
+        int answer1 = gcd.gcd(0, 0);
+        Assert.assertEquals(0, answer1);
+
+        int answer2 = gcd.gcd(10, 0);
+        Assert.assertEquals(10, answer2);
+
+        int answer3 = gcd.gcd(0, 7);
+        Assert.assertEquals(7, answer3);
     }
 
     @Test
     public void coprimeIntegers() {
-        GCD gcd=new GCD();
-        int answer=gcd.gcd(15,8);
-        Assert.assertEquals(answer,1);
+        GCD gcd = new GCD();
+        int answer = gcd.gcd(15, 8);
+        Assert.assertEquals(1, answer);
     }
 
     @Test
     public void equalArgs() {
-        GCD gcd=new GCD();
-        int answer=gcd.gcd(7,7);
-        Assert.assertEquals(answer,7);
+        GCD gcd = new GCD();
+        int answer = gcd.gcd(7, 7);
+        Assert.assertEquals(7, answer);
     }
 
     @Test
     public void argDividesArg() {
         GCD gcd = new GCD();
-        int a = gcd.gcd(4,12);
-        int b = gcd.gcd(12,4);
-        int c = gcd.gcd(-4,12);
-        int d = gcd.gcd(12,-4);
-        int e = gcd.gcd(4,-12);
-        int f = gcd.gcd(-12,4);
-        int g = gcd.gcd(-4,-12);
-        Assert.assertTrue(a==4 && b==4 && c==4 && d==4 && e==4 && f==4 && g==4);
+
+        int a = gcd.gcd(4, 12);
+        Assert.assertEquals(4, a);
+
+        int b = gcd.gcd(12, 4);
+        Assert.assertEquals(4, b);
+
+        int c = gcd.gcd(-4, 12);
+        Assert.assertEquals(4, c);
+
+        int d = gcd.gcd(12, -4);
+        Assert.assertEquals(4, d);
+
+        int e = gcd.gcd(4, -12);
+        Assert.assertEquals(4, e);
+
+        int f = gcd.gcd(-12, 4);
+        Assert.assertEquals(4, f);
+
+        int g = gcd.gcd(-4, -12);
+        Assert.assertEquals(4, g);
     }
 
     @Test
     public void notEqualArgsMaxGcd() {
-        GCD gcd=new GCD();
-        int res=gcd.gcd(45,60);
-        Assert.assertEquals(res,15);
+        GCD gcd = new GCD();
+        int res = gcd.gcd(45, 60);
+        Assert.assertEquals(15, res);
     }
 
     @Test
